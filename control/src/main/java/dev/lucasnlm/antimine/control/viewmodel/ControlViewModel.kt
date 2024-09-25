@@ -73,6 +73,7 @@ class ControlViewModel(
             selected = controlDetails?.controlStyle ?: ControlStyle.Standard,
             controls = gameControlOptions,
             hapticFeedbackLevel = preferencesRepository.getHapticFeedbackLevel(),
+            zoom = preferencesRepository.zoom(), // WM
             showReset = hasChangedPreferences(),
         )
     }

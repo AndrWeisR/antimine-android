@@ -49,4 +49,6 @@ object PreferenceKeys {
     const val PREFERENCE_LAST_VERSION = "preference_last_version"
     const val PREFERENCE_DEFAULT_SWITCH_BUTTON = "preference_default_switch_button"
     const val PREFERENCE_USE_IMMERSIVE_MODE = "preference_use_immersive_mode"
+    const val PREFERENCE_ZOOM = "preference_zoom" // WM
+
 }

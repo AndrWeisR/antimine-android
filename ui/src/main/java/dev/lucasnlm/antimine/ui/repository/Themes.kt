@@ -14,7 +14,7 @@ object Themes {
             palette =
                 AreaPalette(
                     accent = 0xD32F2F,
-                    background = 0xFFFFFF,
+                    background = 0xE0E0E0, // WM
                     covered = 0x424242,
                     coveredOdd = 0x424242,
                     uncovered = 0xd5d2cc,

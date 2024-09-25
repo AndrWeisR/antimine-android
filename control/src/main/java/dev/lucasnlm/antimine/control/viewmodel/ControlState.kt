@@ -11,4 +11,5 @@ data class ControlState(
     val selected: ControlStyle,
     val controls: List<ControlDetails>,
     val showReset: Boolean,
+    val zoom: Float, // WM
 )

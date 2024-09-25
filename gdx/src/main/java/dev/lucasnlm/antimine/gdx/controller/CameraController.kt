@@ -1,4 +1,5 @@
 package dev.lucasnlm.antimine.gdx.controller
+import android.util.Log
 import android.util.SizeF
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.OrthographicCamera
@@ -112,12 +113,15 @@ class CameraController(
 
     fun scaleZoom(zoomMultiplier: Float) {
         camera.apply {
-            val newZoom =
-                if (zoomMultiplier > 1.0) {
-                    zoom + 1.0f * Gdx.graphics.deltaTime
-                } else {
-                    zoom - 1.0f * Gdx.graphics.deltaTime
-                }
+            val newZoom = zoomMultiplier
+//                if (zoomMultiplier > 1.0) {
+////                    zoom + 1.0f * Gdx.graphics.deltaTime
+//                    // WM
+//                    zoom + 0.2f * Gdx.graphics.deltaTime
+//                } else {
+////                    zoom - 1.0f * Gdx.graphics.deltaTime
+//                    zoom - 0.2f * Gdx.graphics.deltaTime
+//                }
             zoom = newZoom.coerceIn(MinefieldStage.MAX_ZOOM_OUT, MinefieldStage.MAX_ZOOM_IN)
             if (currentZoom != zoom) {
                 currentZoom = zoom

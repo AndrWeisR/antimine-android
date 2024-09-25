@@ -1,5 +1,6 @@
 package dev.lucasnlm.antimine.gdx
 
+import android.util.Log
 import com.badlogic.gdx.ApplicationAdapter
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.InputMultiplexer
@@ -65,6 +66,8 @@ class GameApplicationListener(
             onChangeZoom = {
                 GameContext.zoom = it
                 minefieldStage.scaleZoom(it)
+                //Log.d("WM", "minefieldInputController: saving zoom to preference: " + it)
+                preferencesRepository.setZoom(it) // WM
             },
         )
 
@@ -75,6 +78,8 @@ class GameApplicationListener(
 
         GameContext.run {
             canTintAreas = currentSkin.canTint
+
+            zoom = preferencesRepository.zoom() // WM
 
             atlas =
                 GameTextureAtlas.loadTextureAtlas(
@@ -125,6 +130,10 @@ class GameApplicationListener(
         }
 
         Gdx.input.inputProcessor = InputMultiplexer(GestureDetector(minefieldInputController), minefieldStage)
+        // WM Added...
+//        GameContext.zoom = preferencesRepository.zoom()
+        //Log.d("WM", "create: setting zoom to " + GameContext.zoom)
+        // WM
         minefieldStage.setZoom(GameContext.zoom)
     }
 
@@ -145,9 +154,11 @@ class GameApplicationListener(
     }
 
     fun onPause() {
-        GameContext.run {
-            zoom = 1.0f
-        }
+        // This is one point where the zoom is unnecessarily reverted to 1.0.
+//        Log.d("WM", "onPause: setting zoom to 1.0")
+//        GameContext.run {
+//            zoom = 1.0f
+//        }
     }
 
     override fun render() {
@@ -191,6 +202,7 @@ class GameApplicationListener(
     }
 
     fun refreshZoom() {
+        //Log.d("WM", "refreshZoom: setting zoom to " + GameContext.zoom)
         minefieldStage.setZoom(GameContext.zoom)
     }
 

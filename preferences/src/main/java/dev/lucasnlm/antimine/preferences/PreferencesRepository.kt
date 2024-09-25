@@ -200,4 +200,9 @@ interface PreferencesRepository {
     fun useImmersiveMode(): Boolean
 
     fun setImmersiveMode(enabled: Boolean)
+
+    // WM
+    fun zoom(): Float
+    fun setZoom(zoom: Float)
+
 }

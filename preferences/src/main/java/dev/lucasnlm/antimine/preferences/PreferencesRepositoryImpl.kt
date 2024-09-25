@@ -279,6 +279,7 @@ class PreferencesRepositoryImpl(
     }
 
     override fun isPremiumEnabled(): Boolean {
+//        return true;
         return preferencesManager.getBoolean(PreferenceKeys.PREFERENCE_PREMIUM_FEATURES, false)
     }
 
@@ -492,5 +493,14 @@ class PreferencesRepositoryImpl(
 
     override fun setImmersiveMode(enabled: Boolean) {
         preferencesManager.putBoolean(PreferenceKeys.PREFERENCE_USE_IMMERSIVE_MODE, enabled)
+    }
+
+    // WM
+    override fun zoom(): Float {
+        return preferencesManager.getFloat(PreferenceKeys.PREFERENCE_ZOOM, 0.5f)
+    }
+
+    override fun setZoom(zoom: Float) {
+        preferencesManager.putFloat(PreferenceKeys.PREFERENCE_ZOOM, zoom)
     }
 }

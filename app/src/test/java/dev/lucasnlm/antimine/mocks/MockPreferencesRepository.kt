@@ -305,4 +305,13 @@ class MockPreferencesRepository : PreferencesRepository {
     override fun setImmersiveMode(enabled: Boolean) {
         // Not implemented
     }
+
+    // WM
+    override fun zoom(): Float {
+        TODO("Not yet implemented")
+    }
+
+    override fun setZoom(zoom: Float) {
+        TODO("Not yet implemented")
+    }
 }

@@ -97,7 +97,8 @@ class GameActivity :
         super.onNewIntent(intent)
         intent.run(::handleIntent)
 
-        GameContext.zoom = 1.0f
+        GameContext.zoom = preferencesRepository.zoom() // was 1.0f
+//        Log.d("WM", "onNewIntent: setting zoom to preference: " + GameContext.zoom)
         GameContext.zoomLevelAlpha = 1.0f
     }
 

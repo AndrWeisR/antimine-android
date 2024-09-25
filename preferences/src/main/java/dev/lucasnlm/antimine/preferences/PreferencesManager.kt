@@ -11,6 +11,16 @@ interface PreferencesManager {
         value: Boolean,
     )
 
+    // WM
+    fun getFloat(
+        key: String,
+        defaultValue: Float,
+    ): Float
+    fun putFloat(
+        key: String,
+        value: Float,
+    )
+
     fun getInt(
         key: String,
         defaultValue: Int,

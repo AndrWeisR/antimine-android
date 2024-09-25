@@ -21,6 +21,17 @@ class PreferencesManagerImpl(
         value: Boolean,
     ) = preferences.edit { putBoolean(key, value) }
 
+    // WM
+    override fun getFloat(
+        key: String,
+        defaultValue: Float,
+    ) = preferences.getFloat(key, defaultValue)
+
+    override fun putFloat(
+        key: String,
+        value: Float,
+    ) = preferences.edit { putFloat(key, value) }
+
     override fun getInt(
         key: String,
         defaultValue: Int,
